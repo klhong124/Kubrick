@@ -12,7 +12,7 @@ export default () => {
     })
 
     const httpLink = new HttpLink({
-        uri: process.env.nuxtApiUrl || '/graphql',
+        uri: 'https://asia-east2-ohayou-hu-2022.cloudfunctions.net/graphql',
         // credentials: 'include',
     })
 
