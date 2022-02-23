@@ -14,12 +14,13 @@
       />
     </div>
 
-    <div class="flex">
+    <div class="flex my-4">
+    <small v-if="error_message" class="text-red-500">*{{ error_message }}</small>
       <button
-        class="button mt-4 ml-auto"
+        class="button  ml-auto"
         type="button"
         @click="update"
-        :disabled="uploading"
+        :disabled="uploading || invalidation"
       >
         <span v-if="!uploading">Update</span>
         <i class="mdi mdi-loading mdi-spin" v-else></i>
@@ -38,7 +39,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
 import { useMutation } from '@vue/apollo-composable/dist'
 import UPDATE_MUTATION from '~/graphql/UPDATE_MUTATION.gql'
 
@@ -68,12 +69,39 @@ export default defineComponent({
         display_query_result.value = data.update_interests
       }
     })
+    const invalidation = computed(() => {
+      return (
+        !interests.value.full_name ||
+        !interests.value.favourite_movie ||
+        !interests.value.favourite_book
+      )
+    })
+
+    const error_message = computed(() => {
+      let arr = []
+      if (!interests.value.full_name) {
+        arr.push('Full name')
+      }
+      if (!interests.value.favourite_movie) {
+        arr.push('Favourite movie')
+      }
+      if (!interests.value.favourite_book) {
+        arr.push('Favourite Book')
+      }
+      if (arr.length > 0) {
+        return `Please fill the missing information : ${arr.join(', ')}`
+      } else {
+        return null
+      }
+    })
 
     return {
       interests,
       update,
       uploading,
       display_query_result,
+      invalidation,
+      error_message,
     }
   },
 })
