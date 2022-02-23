@@ -1,4 +1,13 @@
 const resolvers = {
+    Query: {
+        interests: () => {
+            return {
+                full_name:"Ryan Kwan",
+                favourite_movie:"Ryan Kwan",
+                favourite_book:"Ryan Kwan",
+            };
+        }
+    },
     Mutation:{
         update_interests: async(_,{interests})=>{
             //upload data to database

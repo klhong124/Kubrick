@@ -8,6 +8,9 @@ const typeDefs = gql`
     favourite_book: String
     updated_at:DateTime
   }
+  type Query {
+    interests: interests
+  }
   type Mutation {
     update_interests(interests: interestsInput): interests
   }
