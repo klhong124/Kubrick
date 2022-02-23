@@ -7,7 +7,7 @@
     @apply bg-gray-900 w-[120px] text-white active:bg-gray-600 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:opacity-40;
   }
   .icon_button {
-    @apply text-black active:bg-gray-300  text-xs px-3 py-2 rounded-full hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+    @apply text-black active:bg-gray-300  text-xs px-2 py-2 rounded-full hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
   }
   .interest_label {
     @apply block mb-2 text-sm font-medium text-gray-900;
