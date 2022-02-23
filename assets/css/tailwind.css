@@ -4,7 +4,7 @@
 
 @layer components {
   .button {
-    @apply bg-gray-900 text-white active:bg-gray-600 font-bold uppercase text-sm px-8 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+    @apply bg-gray-900 w-[120px] text-white active:bg-gray-600 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:opacity-40;
   }
   .icon_button {
     @apply text-black active:bg-gray-300  text-xs px-3 py-2 rounded-full hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;

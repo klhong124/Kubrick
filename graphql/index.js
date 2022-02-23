@@ -12,7 +12,7 @@ export default () => {
     })
 
     const httpLink = new HttpLink({
-        uri: process.env.nuxtApiUrl || 'https://countries.trevorblades.com/',
+        uri: process.env.nuxtApiUrl || '/graphql',
         // credentials: 'include',
     })
 

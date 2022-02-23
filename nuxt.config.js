@@ -1,3 +1,6 @@
+import server from './server'
+
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -8,7 +11,7 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Create a simple Vue application' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -16,6 +19,22 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
+
+  hooks: {
+    render: {
+      async before({
+        nuxt: {
+          server: { app },
+        },
+      }) {
+        await server.start()
+        await server.applyMiddleware({ app, path: '/graphql' })
+        console.log(`🚀 ApolloServer ready at /graphql`)
+      },
+    },
+  },
+
+
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -35,6 +54,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
+    "nuxtjs-mdi-font",
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
 

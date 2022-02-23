@@ -8,11 +8,11 @@
       </button>
     </div>
     <div v-if="editing">
-      <input :name="title" v-model="modelValue" @input="updateValue" placeholder="Shawshank Redemption" class="interest_input" />
+      <input class="interest_input" :value="value" @input="$emit('input', $event.target.value)" placeholder="Shawshank Redemption" type="text">   
     </div>
     <div v-else>
       <p class="interest_answer">
-      {{ modelValue }}
+      {{ value }}
       </p>
     </div>
   </div>
@@ -21,7 +21,7 @@
 <script>
 export default {
   props: {
-    modelValue: {
+    value: {
       type: String,
     },
     title: {
@@ -30,13 +30,9 @@ export default {
   },
   data() {
     return {
-      editing: true,
+      editing: false,
     };
   },
-  methods: {
-    updateValue(event) {
-      this.$emit("update:modelValue", event.target.value);
-    },
-  },
+
 };
 </script>

@@ -1,9 +1,7 @@
 <template>
-  <v-app>
-    <div class="container mx-auto p-4" :class="{ dark: dark_mode }">
-      <nuxt />
-    </div>
-  </v-app>
+  <div class="container mx-auto p-4" :class="{ dark: dark_mode }">
+    <nuxt />
+  </div>
 </template>
 
 <script>
