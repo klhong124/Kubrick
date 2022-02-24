@@ -1,25 +1,38 @@
 <template>
-  <div class="min-h-[70px]">
+  <div class="min-h-[80px] py-4">
     <div class="flex items-center justify-between">
       <label :for="title" class="interest_label">{{ title }}</label>
-      <button class="icon_button" type="button" @click="setEditing(is_editing?null:title)">
-        <i class="mdi mdi-close" :class="{'mdi-close':is_editing, 'mdi-pencil mr-1':!is_editing}"></i>
-        {{is_editing?'':'Edit'}}
+      <button
+        class="icon_button"
+        type="button"
+        @click="setEditing(is_editing ? null : title)"
+      >
+        <i
+          class="mdi mdi-close"
+          :class="{ 'mdi-close': is_editing, 'mdi-pencil mr-1': !is_editing }"
+        ></i>
+        {{ is_editing ? '' : 'Edit' }}
       </button>
     </div>
     <div v-if="is_editing">
-      <input class="interest_input" :value="value" @input="$emit('input', $event.target.value)" placeholder="Shawshank Redemption" type="text">   
+      <input
+        class="interest_input"
+        ref="input_ref"
+        :value="value"
+        @input="$emit('input', $event.target.value)"
+        type="text"
+      />
     </div>
     <div v-else>
       <p class="interest_answer">
-      {{ value }}
+        {{ value }}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState,mapMutations } from "vuex";
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   props: {
@@ -30,15 +43,17 @@ export default {
       type: String,
     },
   },
-  computed:{
-    is_editing:(app)=>{
+  computed: {
+    is_editing: (app) => {
       return app.title == app.editing
     },
-    ...mapState(["editing"]),
+    ...mapState(['editing']),
+  },
+  updated() {
+    this.$refs['input_ref']?.focus()
   },
   methods: {
-    ...mapMutations(["setEditing"]),
+    ...mapMutations(['setEditing']),
   },
-
-};
+}
 </script>

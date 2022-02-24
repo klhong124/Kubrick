@@ -10,7 +10,12 @@ module.exports = {
     ],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                'kubrick': '#223536',
+            },
+
+        },
     },
     variants: {
         extend: {},

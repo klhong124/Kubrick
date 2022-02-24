@@ -3,19 +3,30 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply bg-kubrick ;
+  }
+  .card {
+    @apply max-w-md  p-8 rounded-lg dark:bg-gray-700 dark:border-gray-600 ;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(9.7px);
+    border: 1px solid rgba(255, 255, 255, 0.74);
+  }
   .button {
-    @apply bg-gray-900 w-[120px] text-white active:bg-gray-600 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:opacity-40;
+    @apply bg-gray-900 dark:bg-gray-300 min-w-[120px] text-white dark:text-gray-800 active:bg-gray-600 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:opacity-40;
   }
   .icon_button {
-    @apply text-black active:bg-gray-300  text-xs px-2 py-2 rounded-full hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+    @apply text-black active:bg-gray-300 dark:active:bg-gray-700 dark:text-white p-2 text-xs rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
   }
   .interest_label {
-    @apply block mb-2 text-sm font-medium text-gray-900;
+    @apply block mb-2 text-base font-medium text-gray-900 dark:text-white;
   }
   .interest_input {
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500;
   }
   .interest_answer {
-    @apply block my-2 text-sm font-medium text-gray-500;
+    @apply block my-2 text-sm font-medium text-gray-500 dark:text-gray-300;
   }
 }
