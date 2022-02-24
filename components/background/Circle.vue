@@ -8,8 +8,10 @@
 
 <script>
 export default {
+    // differ moving speed for parallax effects
   props: ['speed'],
   mounted() {
+    // implement the moving speed to style.margin in mousemove event
     window.addEventListener('mousemove', ({ clientX, clientY }) => {
       let x =
         ((clientX - window.innerWidth / 2) / window.innerWidth) *

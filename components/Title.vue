@@ -27,6 +27,7 @@ export default {
     },
   },
   async mounted() {
+    //  animation timeline in when page is loaded
     this.$refs['line'][0].style.transform = 'translateX(0px)'
     await this.sleep(1000)
     this.$refs['line'][1].style.transform = 'translateX(0px)'

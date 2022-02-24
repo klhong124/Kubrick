@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col xl:flex-row xl:items-center">
-    <div class="flex">
+  <div class="flex flex-col xl:flex-row">
+    <div class="flex lg:mt-[200px] mb-12">
       <Title title="Kubrick|Front-End Developer|Coding Challenge" />
     </div>
 
@@ -50,19 +50,7 @@
           >*The query will sleep() for 1 sec in order to show the loading
           lifecycle behaviour.</small
         >
-        <div v-if="uploading">
-          <div
-            class="flex animate-pulse flex-row items-center h-full space-x-5 mt-4"
-          >
-            <div class="flex flex-col space-y-3">
-              <div class="w-64 bg-gray-500 h-3 rounded-md"></div>
-              <div class="w-32 bg-gray-500 h-3 rounded-md"></div>
-              <div class="w-48 bg-gray-500 h-3 rounded-md"></div>
-              <div class="w-72 bg-gray-500 h-3 rounded-md"></div>
-              <div class="w-48 bg-gray-500 h-3 rounded-md"></div>
-            </div>
-          </div>
-        </div>
+        <SkeletonLoader v-if="uploading"/>
         <pre v-else class="dark:text-white">{{ display_query_result }}</pre>
       </div>
     </div>
@@ -76,6 +64,7 @@ import UPDATE_MUTATION from '~/graphql/UPDATE_MUTATION.gql'
 
 export default defineComponent({
   setup() {
+    // init vue data
     const interests = ref({
       full_name: 'Ryan Kwan',
       favourite_movie: '',
@@ -83,6 +72,8 @@ export default defineComponent({
     })
     const display_query_result = ref(null)
 
+  //  vue-apollo setup on plugins/apollo-client.js and graphql/index.js
+  //  for the graphql server, you may refer to ~/server/*
     const {
       mutate: update,
       loading: uploading,
@@ -100,6 +91,7 @@ export default defineComponent({
         display_query_result.value = data.update_interests
       }
     })
+    // disable upload button if below condition doesn't fulfil
     const invalidation = computed(() => {
       return (
         !interests.value.full_name ||
@@ -107,7 +99,7 @@ export default defineComponent({
         !interests.value.favourite_book
       )
     })
-
+    // create error message
     const error_message = computed(() => {
       let arr = []
       if (!interests.value.full_name) {

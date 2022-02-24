@@ -35,6 +35,7 @@
 import { mapState, mapMutations } from 'vuex'
 
 export default {
+  // create dynamic input component with v-model and title props
   props: {
     value: {
       type: String,
@@ -45,11 +46,13 @@ export default {
   },
   computed: {
     is_editing: (app) => {
+      // using edit state in vuex to edit one free text field by match the input title
       return app.title == app.editing
     },
     ...mapState(['editing']),
   },
   updated() {
+    // auto focus() input field for better UX.
     this.$refs['input_ref']?.focus()
   },
   methods: {
