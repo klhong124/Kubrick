@@ -19,7 +19,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   target: 'static',
-  css: [],
+  css: ['~/assets/css/liquid.css'],
 
   hooks: {
     render: {

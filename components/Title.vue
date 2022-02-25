@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-4xl sm:text-5xl md:text-6xl  text-[#14f279] font-serif leading-normal sm:leading-relaxed md:leading-relaxed ">
+  <h1 class="text-3xl sm:text-5xl md:text-6xl  text-[#14f279] font-serif leading-normal sm:leading-relaxed md:leading-relaxed ">
     <span v-for="(line, i) in lines" :key="i">
       <div class="overflow-hidden relative w-[700px]" :class="{ 'ml-12 sm:ml-24': i % 2 }">
         <span ref="boarder" class="boarder border-l-[1px] transition duration-500 ease-out"></span>

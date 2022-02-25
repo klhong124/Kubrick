@@ -4,15 +4,10 @@
 
 @layer components {
   body {
-    @apply bg-kubrick ;
+    @apply bg-kubrick;
   }
   .card {
-    @apply max-w-md  p-8 rounded-lg dark:bg-gray-700 dark:border-gray-600 ;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(9.7px);
-    border: 1px solid rgba(255, 255, 255, 0.74);
+    @apply max-w-md rounded-lg  relative overflow-hidden shadow;
   }
   .button {
     @apply bg-gray-900 dark:bg-gray-300 min-w-[120px] text-white dark:text-gray-800 active:bg-gray-600 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 disabled:opacity-40;
@@ -29,4 +24,12 @@
   .interest_answer {
     @apply block my-2 text-sm font-medium text-gray-500 dark:text-gray-300;
   }
+  .liquid::before {
+    @apply dark:bg-gray-700 bg-[#e4e4e4] ;
+
+  }
+  .liquid::after {
+    @apply dark:bg-gray-700 bg-[#e4e4e4] opacity-20;
+  }
+
 }

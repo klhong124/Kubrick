@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-[80px] py-4">
+  <div class="min-h-[80px] pt-2">
     <div class="flex items-center justify-between">
       <label :for="title" class="interest_label">{{ title }}</label>
       <button

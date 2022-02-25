@@ -14,7 +14,9 @@ module.exports = {
             colors: {
                 'kubrick': '#223536',
             },
-
+            transitionProperty: {
+                'width': 'width'
+            },
         },
     },
     variants: {
